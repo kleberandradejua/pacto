@@ -21,6 +21,7 @@ class User{
         cy.get('input[id="user_name"]').type(cadastro_usuario.nome)
         cy.get('input[id="user_lastname"]').type(cadastro_usuario.sobrenome)
         cy.get('.actions > input').click()
+        cy.get('div[id="error_explanation"]').should('be.visible')
     }
 }
 
