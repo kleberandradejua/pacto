@@ -75,9 +75,9 @@ describe('Busca de elementos', () =>{
     .should('have.text', 'Dropdown e Select')
     .click()
     //cy.get('div[class="input-field col s12 m6"] > select[data-select-id="1332490a-87aa-f1b0-7186-9281a635b1c2"]')
-    cy.get(':nth-child(4) > .select-wrapper > input.select-dropdown')
+    /*cy.get(':nth-child(4) > .select-wrapper > input.select-dropdown')
     .click()
-    .select('Homem')
+    .select('Homem')*/
     
   })
 })
@@ -87,6 +87,12 @@ describe('Login', () => {
     cy.visit('https://automacaocombatista.herokuapp.com/treinamento/home')
     cy.title('be.equal', 'Automação com Batista')
     cy.get('h5[class="orange-text center "]').should('have.text', 'Bem vindo ao Site de Automação do Batista.')
+  })
+  it('Basic Auth', () => {
+    cy.get(':nth-child(6) > .collapsible-header')
+    .should('have.text','Outros')
+    .click()
+    //cy.on('window:alert')
   })
 
 })
