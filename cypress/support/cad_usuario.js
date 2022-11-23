@@ -15,6 +15,16 @@ class User{
         cy.get('.actions > input').click()
         cy.get('p[id="notice"]').should('have.text', 'Usuário Criado com sucesso')
     }
+    
+    dados_incompletos(){
+        var cadastro_usuario = user.cadastro_usuario();
+        cy.get('input[id="user_name"]').type(cadastro_usuario.nome)
+        cy.get('input[id="user_lastname"]').type(cadastro_usuario.sobrenome)
+        cy.get('.actions > input').click()
+    }
 }
 
 export default User;
+
+
+

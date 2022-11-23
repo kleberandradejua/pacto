@@ -2,9 +2,9 @@ export default{
     cadastro_usuario: function(){
         var user = {
             nome: 'Kleber',
-            sobrenome: 'andrade',
+            sobrenome: 'Andrade',
             email: 'kleberandrade98@gmail.com',
-            endereco: 'rua mascarenhas de morais, 37',
+            endereco: 'Rua Mascarenhas de Morais, 37',
             universidade: 'FAP',
             profissao: 'Analista de Teste',
             genero: 'masculino',
