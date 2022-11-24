@@ -82,17 +82,25 @@ describe('Busca de elementos', () =>{
   })
 })
 
-describe('Login', () => {
+describe('Autocomplete', () => {
   beforeEach(function(){
     cy.visit('https://automacaocombatista.herokuapp.com/treinamento/home')
     cy.title('be.equal', 'Automação com Batista')
     cy.get('h5[class="orange-text center "]').should('have.text', 'Bem vindo ao Site de Automação do Batista.')
   })
-  it('Basic Auth', () => {
-    cy.get(':nth-child(6) > .collapsible-header')
-    .should('have.text','Outros')
-    .click()
-    //cy.on('window:alert')
-  })
+  it('Accordion ao clicar no menu widgets', () => {
+    cy.contains('a', 'Widgets').click();
+    cy.contains('a', 'Autocomplete').click();
+    cy.get('h5').should('contain.text', 'Autocomplete');
+  });
+  it('Preenchimento automático', () => {
+    cy.get('#autocomplete-input').type('a');
+    cy.get('.autocomplete-content > li').should('contain.text', 'Acre');
+    cy.get('.autocomplete-content > li').should('not.contain.text', 'Sergipe');
+  });
+  it('Valor de entrada após clicar no botão', () => {
+    cy.contains('.autocomplete-content > li', 'Acre').click();
+    cy.get('#autocomplete-input').should('have.value', 'Acre');
+  });
+});
 
-})
